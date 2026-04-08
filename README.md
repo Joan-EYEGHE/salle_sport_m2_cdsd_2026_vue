@@ -1,5 +1,32 @@
-# Vue 3 + TypeScript + Vite
+# GymFlow — Frontend Vue (`salle_sport_m2_cdsd_2026_vue`)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Frontend Vue de l’application GymFlow, basé sur Vite.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Ce projet est actuellement un scaffold/minimal (base de démarrage).
+
+## Stack
+
+- Vue 3 + TypeScript
+- Vite
+
+## Prérequis
+
+- Node.js 18+ recommandé (npm inclus)
+
+## Installation
+
+```bash
+npm install
+```
+
+## Lancer en développement
+
+```bash
+npm run dev
+```
+
+## Scripts npm
+
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
