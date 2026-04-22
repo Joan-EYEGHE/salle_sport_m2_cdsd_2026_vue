@@ -4,7 +4,7 @@ import { useAuthStore } from '@/stores/auth'
 
 // ── Définition des routes ───────────────────────────────────────────────
 const routes: RouteRecordRaw[] = [
-  // Pages publiques
+  // ── Pages publiques (sans layout) ──────────────────────────────────
   {
     path: '/',
     name: 'Landing',
@@ -18,91 +18,93 @@ const routes: RouteRecordRaw[] = [
     meta: { public: true },
   },
 
-  // ADMIN uniquement
+  // ── Pages protégées (avec MainLayout) ──────────────────────────────
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/views/DashboardPage.vue'),
-    meta: { roles: ['ADMIN'] },
-  },
-  {
-    path: '/activities',
-    name: 'Activities',
-    component: () => import('@/views/ActivitiesPage.vue'),
-    meta: { roles: ['ADMIN'] },
-  },
-  {
-    path: '/activities/new',
-    name: 'ActivityNew',
-    component: () => import('@/views/ActivityFormPage.vue'),
-    meta: { roles: ['ADMIN'] },
-  },
-  {
-    path: '/activities/:id/edit',
-    name: 'ActivityEdit',
-    component: () => import('@/views/ActivityFormPage.vue'),
-    meta: { roles: ['ADMIN'] },
-  },
-  {
-    path: '/users',
-    name: 'Users',
-    component: () => import('@/views/UsersPage.vue'),
-    meta: { roles: ['ADMIN'] },
-  },
-  {
-    path: '/subscriptions',
-    name: 'Subscriptions',
-    component: () => import('@/views/SubscriptionsPage.vue'),
-    meta: { roles: ['ADMIN'] },
-  },
-  {
-    path: '/subscriptions/new',
-    name: 'SubscriptionNew',
-    component: () => import('@/views/SubscriptionForm.vue'),
-    meta: { roles: ['ADMIN'] },
+    path: '/',
+    component: () => import('@/layouts/MainLayout.vue'),
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/DashboardPage.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'activities',
+        name: 'Activities',
+        component: () => import('@/views/ActivitiesPage.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'activities/new',
+        name: 'ActivityNew',
+        component: () => import('@/views/ActivityFormPage.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'activities/:id/edit',
+        name: 'ActivityEdit',
+        component: () => import('@/views/ActivityFormPage.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'users',
+        name: 'Users',
+        component: () => import('@/views/UsersPage.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'subscriptions',
+        name: 'Subscriptions',
+        component: () => import('@/views/SubscriptionsPage.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'subscriptions/new',
+        name: 'SubscriptionNew',
+        component: () => import('@/views/SubscriptionForm.vue'),
+        meta: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'members',
+        name: 'Members',
+        component: () => import('@/views/MembersPage.vue'),
+        meta: { roles: ['ADMIN', 'CASHIER'] },
+      },
+      {
+        path: 'members/new',
+        name: 'MemberNew',
+        component: () => import('@/views/MemberFormPage.vue'),
+        meta: { roles: ['ADMIN', 'CASHIER'] },
+      },
+      {
+        path: 'members/:id',
+        name: 'MemberDetail',
+        component: () => import('@/views/MemberDetailPage.vue'),
+        meta: { roles: ['ADMIN', 'CASHIER'] },
+      },
+      {
+        path: 'tickets',
+        name: 'Tickets',
+        component: () => import('@/views/TicketsPage.vue'),
+        meta: { roles: ['ADMIN', 'CASHIER'] },
+      },
+      {
+        path: 'transactions',
+        name: 'Transactions',
+        component: () => import('@/views/TransactionsPage.vue'),
+        meta: { roles: ['ADMIN', 'CASHIER'] },
+      },
+      {
+        path: 'qr-control',
+        name: 'QrControl',
+        component: () => import('@/views/QrControlPage.vue'),
+        meta: { roles: ['ADMIN', 'CONTROLLER'] },
+      },
+    ],
   },
 
-  // ADMIN + CASHIER
-  {
-    path: '/members',
-    name: 'Members',
-    component: () => import('@/views/MembersPage.vue'),
-    meta: { roles: ['ADMIN', 'CASHIER'] },
-  },
-  {
-    path: '/members/new',
-    name: 'MemberNew',
-    component: () => import('@/views/MemberFormPage.vue'),
-    meta: { roles: ['ADMIN', 'CASHIER'] },
-  },
-  {
-    path: '/members/:id',
-    name: 'MemberDetail',
-    component: () => import('@/views/MemberDetailPage.vue'),
-    meta: { roles: ['ADMIN', 'CASHIER'] },
-  },
-  {
-    path: '/tickets',
-    name: 'Tickets',
-    component: () => import('@/views/TicketsPage.vue'),
-    meta: { roles: ['ADMIN', 'CASHIER'] },
-  },
-  {
-    path: '/transactions',
-    name: 'Transactions',
-    component: () => import('@/views/TransactionsPage.vue'),
-    meta: { roles: ['ADMIN', 'CASHIER'] },
-  },
-
-  // CONTROLLER + ADMIN
-  {
-    path: '/qr-control',
-    name: 'QrControl',
-    component: () => import('@/views/QrControlPage.vue'),
-    meta: { roles: ['ADMIN', 'CONTROLLER'] },
-  },
-
-  // 404
+  // ── 404 ────────────────────────────────────────────────────────────
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
