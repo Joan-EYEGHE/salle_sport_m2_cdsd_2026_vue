@@ -15,8 +15,8 @@ const route = useRoute()
 const NAV_ITEMS = [
   { label: 'Dashboard',     path: '/dashboard',    icon: LayoutDashboard, roles: ['ADMIN'] },
   { label: 'Membres',       path: '/members',      icon: Users,           roles: ['ADMIN','CASHIER'] },
-  { label: 'Activités',     path: '/activities',   icon: Activity,        roles: ['ADMIN'] },
-  { label: 'Abonnements',   path: '/subscriptions',icon: CreditCard,      roles: ['ADMIN'] },
+  { label: 'Activités',     path: '/activities',   icon: Activity,        roles: ['ADMIN', 'CASHIER'] },
+  { label: 'Abonnements',   path: '/subscriptions',icon: CreditCard,      roles: ['ADMIN', 'CASHIER'] },
   { label: 'Tickets',       path: '/tickets',      icon: Ticket,          roles: ['ADMIN','CASHIER'] },
   { label: 'Transactions',  path: '/transactions', icon: Receipt,         roles: ['ADMIN','CASHIER'] },
   { label: 'Utilisateurs',  path: '/users',        icon: Users,           roles: ['ADMIN'] },

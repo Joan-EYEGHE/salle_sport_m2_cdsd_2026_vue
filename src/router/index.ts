@@ -33,19 +33,19 @@ const routes: RouteRecordRaw[] = [
         path: 'activities',
         name: 'Activities',
         component: () => import('@/views/ActivitiesPage.vue'),
-        meta: { roles: ['ADMIN'] },
+        meta: { roles: ['ADMIN', 'CASHIER'] },
       },
       {
         path: 'activities/new',
         name: 'ActivityNew',
         component: () => import('@/views/ActivityFormPage.vue'),
-        meta: { roles: ['ADMIN'] },
+        meta: { roles: ['ADMIN', 'CASHIER'] },
       },
       {
         path: 'activities/:id/edit',
         name: 'ActivityEdit',
         component: () => import('@/views/ActivityFormPage.vue'),
-        meta: { roles: ['ADMIN'] },
+        meta: { roles: ['ADMIN', 'CASHIER'] },
       },
       {
         path: 'users',
@@ -57,13 +57,13 @@ const routes: RouteRecordRaw[] = [
         path: 'subscriptions',
         name: 'Subscriptions',
         component: () => import('@/views/SubscriptionsPage.vue'),
-        meta: { roles: ['ADMIN'] },
+        meta: { roles: ['ADMIN', 'CASHIER'] },
       },
       {
         path: 'subscriptions/new',
         name: 'SubscriptionNew',
         component: () => import('@/views/SubscriptionForm.vue'),
-        meta: { roles: ['ADMIN'] },
+        meta: { roles: ['ADMIN', 'CASHIER'] },
       },
       {
         path: 'members',
