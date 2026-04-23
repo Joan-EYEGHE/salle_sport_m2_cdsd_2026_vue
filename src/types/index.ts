@@ -1,4 +1,13 @@
 export type Role = 'ADMIN' | 'CASHIER' | 'CONTROLLER'
+
+export interface User {
+  id: number
+  email: string
+  role: Role
+  fullName: string
+  active: boolean
+  createdAt?: string
+}
 export type TypeForfait = 'HEBDO' | 'MENSUEL' | 'TRIMESTRIEL' | 'ANNUEL'
 export type TicketStatus = 'DISPONIBLE' | 'VENDU' | 'UTILISE' | 'EXPIRE'
 export type TypeTransaction = 'REVENU' | 'DEPENSE'
