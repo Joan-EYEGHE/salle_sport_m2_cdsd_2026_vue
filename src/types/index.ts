@@ -34,6 +34,10 @@ export interface Member {
   lieu_naissance?: string
   uuid_qr: string
   active: boolean
+  date_inscription?: string
+  createdAt?: string
+  initials?: string
+  subscriptions?: Subscription[]
 }
 
 export interface Activity {

@@ -78,6 +78,12 @@ const routes: RouteRecordRaw[] = [
         meta: { roles: ['ADMIN', 'CASHIER'] },
       },
       {
+        path: 'members/:slug/edit',
+        name: 'MemberEdit',
+        component: () => import('@/views/MemberFormPage.vue'),
+        meta: { roles: ['ADMIN', 'CASHIER'] },
+      },
+      {
         path: 'members/:id',
         name: 'MemberDetail',
         component: () => import('@/views/MemberDetailPage.vue'),
